@@ -9,17 +9,17 @@ def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+                text="➕𝑨𝑫𝑫 𝒀𝑶𝑼𝑹 𝑮𝑹𝑶𝑼𝑷➕",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text="ʜᴇʟᴩ",
+                text="𝑯𝑬𝑳𝑷",
                 callback_data="settings_back_helper",
             ),
             InlineKeyboardButton(
-                text="sᴇᴛᴛɪɴɢs", callback_data="settings_helper"
+                text="𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺", callback_data="settings_helper"
             ),
         ],
      ]
@@ -30,26 +30,26 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+                text="➕𝑨𝑫𝑫 𝒀𝑶𝑼𝑹 𝑮𝑹𝑶𝑼𝑷➕",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text="ʜᴇʟᴩ", callback_data="settings_back_helper"
+                text="𝑯𝑬𝑳𝑷", callback_data="settings_back_helper"
             )
         ],
         [
             InlineKeyboardButton(
-                text="❣ sᴜᴩᴩᴏʀᴛ ❣", url=config.SUPPORT_GROUP
+                text="❣ 𝑱𝑶𝑰𝑵 ❣", url=config.SUPPORT_GROUP
             ),
             InlineKeyboardButton(
-                text="🥀 ᴍᴀɪɴᴛᴀɪɴᴇʀ 🥀", user_id=OWNER
+                text="🍷 𝑶𝑾𝑵𝑬𝑹 🍷", user_id=OWNER
             )
         ],
         [
             InlineKeyboardButton(
-                text="✨ sᴏᴜʀᴄᴇ ✨", url=config.UPSTREAM_REPO
+                text="🌱 𝑼𝑷𝑫𝑨𝑻𝑬 🌱", url=config.UPSTREAM_REPO
             )
         ],
      ]
