@@ -202,7 +202,7 @@ async def start_comm(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await message.reply_sticker("CAACAgUAAxkBAAIjTGKPYCq3keRZgNbshxtJ5k7H609OAAIZBgACYAF5VIerYoMcSln8JAQ")
+                await message.reply_sticker("CAACAgUAAxkBAAIMnGTaXrIh0hLaQqQTZVzlSVb3SLR_AAIcBAAC-UX4KyIB-UY0-vwEHgQ")
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
@@ -225,7 +225,7 @@ async def start_comm(client, message: Message, _):
             sender_name = message.from_user.first_name
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʏᴏᴜʀ ʙᴏᴛ.\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀɴᴀᴍᴇ:** {sender_name}",
+                f"{message.from_user.mention} 🚩𝐒𝐓𝐀𝐑𝐓✰𝐘𝐎𝐔𝐑✰𝐁𝐎𝐓✰𝐁𝐀𝐁𝐘🚩.\n\n**✰𝐔𝐒𝐄𝐑 𝐈𝐃✰:** {sender_id}\n**✰𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄✰:** {sender_name}",
             )
 
 
