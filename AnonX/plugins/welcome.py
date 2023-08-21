@@ -5,7 +5,7 @@ import time
 from contextlib import suppress
 from functools import partial
 
-from telegram import (
+from 'telegram' import (
     ChatPermissions,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -1003,7 +1003,6 @@ WELC_MUTE_HELP_TXT = (
 @user_admin
 def welcome_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(WELC_HELP_TXT, parse_mode=ParseMode.MARKDOWN)
-
 
 @user_admin
 def welcome_mute_help(update: Update, context: CallbackContext):
