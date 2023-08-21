@@ -962,3 +962,170 @@ def user_button(update: Update, context: CallbackContext):
 
     else:
         query.answer(text="You're not allowed to do this!")
+
+
+WELC_HELP_TXT = (
+    "Your group's welcome/goodbye messages can be personalised in multiple ways. If you want the messages"
+    " to be individually generated, like the default welcome message is, you can use *these* variables:\n"
+    " • `{first}`*:* this represents the user's *first* name\n"
+    " • `{last}`*:* this represents the user's *last* name. Defaults to *first name* if user has no "
+    "last name.\n"
+    " • `{fullname}`*:* this represents the user's *full* name. Defaults to *first name* if user has no "
+    "last name.\n"
+    " • `{username}`*:* this represents the user's *username*. Defaults to a *mention* of the user's "
+    "first name if has no username.\n"
+    " • `{mention}`*:* this simply *mentions* a user - tagging them with their first name.\n"
+    " • `{id}`*:* this represents the user's *id*\n"
+    " • `{count}`*:* this represents the user's *member number*.\n"
+    " • `{chatname}`*:* this represents the *current chat name*.\n"
+    "\nEach variable MUST be surrounded by `{}` to be replaced.\n"
+    "Welcome messages also support markdown, so you can make any elements bold/italic/code/links. "
+    "Buttons are also supported, so you can make your welcomes look awesome with some nice intro "
+    "buttons.\n"
+    f"To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{dispatcher.bot.username}?start=group_id)`. "
+    "Simply replace `group_id` with your group's id, which can be obtained via /id, and you're good to "
+    "go. Note that group ids are usually preceded by a `-` sign; this is required, so please don't "
+    "remove it.\n"
+    "You can even set images/gifs/videos/voice messages as the welcome message by "
+    "replying to the desired media, and calling `/setwelcome`."
+)
+
+WELC_MUTE_HELP_TXT = (
+    "You can get the bot to mute new people who join your group and hence prevent spambots from flooding your group. "
+    "The following options are possible:\n"
+    "• `/welcomemute soft`*:* restricts new members from sending media for 24 hours.\n"
+    "• `/welcomemute strong`*:* mutes new members till they tap on a button thereby verifying they're human.\n"
+    "• `/welcomemute off`*:* turns off welcomemute.\n"
+    "*Note:* Strong mode kicks a user from the chat if they dont verify in 120seconds. They can always rejoin though"
+)
+
+
+@user_admin
+def welcome_help(update: Update, context: CallbackContext):
+    update.effective_message.reply_text(WELC_HELP_TXT, parse_mode=ParseMode.MARKDOWN)
+
+
+@user_admin
+def welcome_mute_help(update: Update, context: CallbackContext):
+    update.effective_message.reply_text(
+        WELC_MUTE_HELP_TXT, parse_mode=ParseMode.MARKDOWN
+    )
+
+
+# TODO: get welcome data from group butler snap
+# def __import_data__(chat_id, data):
+#     welcome = data.get('info', {}).get('rules')
+#     welcome = welcome.replace('$username', '{username}')
+#     welcome = welcome.replace('$name', '{fullname}')
+#     welcome = welcome.replace('$id', '{id}')
+#     welcome = welcome.replace('$title', '{chatname}')
+#     welcome = welcome.replace('$surname', '{lastname}')
+#     welcome = welcome.replace('$rules', '{rules}')
+#     sql.set_custom_welcome(chat_id, welcome, sql.Types.TEXT)
+
+
+def __migrate__(old_chat_id, new_chat_id):
+    sql.migrate_chat(old_chat_id, new_chat_id)
+
+
+def __chat_settings__(chat_id, user_id):
+    welcome_pref = sql.get_welc_pref(chat_id)[0]
+    goodbye_pref = sql.get_gdbye_pref(chat_id)[0]
+    return (
+        "This chat has it's welcome preference set to `{}`.\n"
+        "It's goodbye preference is `{}`.".format(welcome_pref, goodbye_pref)
+    )
+
+
+__help__ = """
+*Admins only:*
+ ❍ /welcome <on/off>*:* enable/disable welcome messages.
+ ❍ /welcome*:* shows current welcome settings.
+ ❍ /welcome noformat*:* shows current welcome settings, without the formatting - useful to recycle your welcome messages!
+ ❍ /goodbye*:* same usage and args as `/welcome`.
+ ❍ /setwelcome <sometext>*:* set a custom welcome message. If used replying to media, uses that media.
+ ❍ /setgoodbye <sometext>*:* set a custom goodbye message. If used replying to media, uses that media.
+ ❍ /resetwelcome*:* reset to the default welcome message.
+ ❍ /resetgoodbye*:* reset to the default goodbye message.
+ ❍ /cleanwelcome <on/off>*:* On new member, try to delete the previous welcome message to avoid spamming the chat.
+ ❍ /welcomemutehelp*:* gives information about welcome mutes.
+ ❍ /cleanservice <on/off*:* deletes telegrams welcome/left service messages. 
+ *Example:*
+user joined chat, user left chat.
+
+*Welcome markdown:* 
+ ❍ /welcomehelp*:* view more formatting information for custom welcome/goodbye messages.
+"""
+
+NEW_MEM_HANDLER = MessageHandler(
+    Filters.status_update.new_chat_members, new_member, run_async=True
+)
+LEFT_MEM_HANDLER = MessageHandler(
+    Filters.status_update.left_chat_member, left_member, run_async=True
+)
+WELC_PREF_HANDLER = CommandHandler(
+    "welcome", welcome, filters=Filters.chat_type.groups, run_async=True
+)
+GOODBYE_PREF_HANDLER = CommandHandler(
+    "goodbye", goodbye, filters=Filters.chat_type.groups, run_async=True
+)
+SET_WELCOME = CommandHandler(
+    "setwelcome", set_welcome, filters=Filters.chat_type.groups, run_async=True
+)
+SET_GOODBYE = CommandHandler(
+    "setgoodbye", set_goodbye, filters=Filters.chat_type.groups, run_async=True
+)
+RESET_WELCOME = CommandHandler(
+    "resetwelcome", reset_welcome, filters=Filters.chat_type.groups, run_async=True
+)
+RESET_GOODBYE = CommandHandler(
+    "resetgoodbye", reset_goodbye, filters=Filters.chat_type.groups, run_async=True
+)
+WELCOMEMUTE_HANDLER = CommandHandler(
+    "welcomemute", welcomemute, filters=Filters.chat_type.groups, run_async=True
+)
+CLEAN_SERVICE_HANDLER = CommandHandler(
+    "cleanservice", cleanservice, filters=Filters.chat_type.groups, run_async=True
+)
+CLEAN_WELCOME = CommandHandler(
+    "cleanwelcome", clean_welcome, filters=Filters.chat_type.groups, run_async=True
+)
+WELCOME_HELP = CommandHandler("welcomehelp", welcome_help, run_async=True)
+WELCOME_MUTE_HELP = CommandHandler("welcomemutehelp", welcome_mute_help, run_async=True)
+BUTTON_VERIFY_HANDLER = CallbackQueryHandler(
+    user_button, pattern=r"user_join_", run_async=True
+)
+
+dispatcher.add_handler(NEW_MEM_HANDLER)
+dispatcher.add_handler(LEFT_MEM_HANDLER)
+dispatcher.add_handler(WELC_PREF_HANDLER)
+dispatcher.add_handler(GOODBYE_PREF_HANDLER)
+dispatcher.add_handler(SET_WELCOME)
+dispatcher.add_handler(SET_GOODBYE)
+dispatcher.add_handler(RESET_WELCOME)
+dispatcher.add_handler(RESET_GOODBYE)
+dispatcher.add_handler(CLEAN_WELCOME)
+dispatcher.add_handler(WELCOME_HELP)
+dispatcher.add_handler(WELCOMEMUTE_HANDLER)
+dispatcher.add_handler(CLEAN_SERVICE_HANDLER)
+dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
+dispatcher.add_handler(WELCOME_MUTE_HELP)
+
+__mod_name__ = "Wᴇʟᴄᴏᴍᴇ"
+__command_list__ = []
+__handlers__ = [
+    NEW_MEM_HANDLER,
+    LEFT_MEM_HANDLER,
+    WELC_PREF_HANDLER,
+    GOODBYE_PREF_HANDLER,
+    SET_WELCOME,
+    SET_GOODBYE,
+    RESET_WELCOME,
+    RESET_GOODBYE,
+    CLEAN_WELCOME,
+    WELCOME_HELP,
+    WELCOMEMUTE_HANDLER,
+    CLEAN_SERVICE_HANDLER,
+    BUTTON_VERIFY_HANDLER,
+    WELCOME_MUTE_HELP,
+]
