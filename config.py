@@ -14,9 +14,9 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 LOG_GROUP_ID = int(getenv("LOG_GROUP_ID"))
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "ᴀɴᴏɴ ダ ᴍᴜsɪᴄ")
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "𝐑𝐀𝐃𝐇𝐀 ダ 𝐌𝐔𝐒𝐈𝐂")
 
-OWNER_ID = list(map(int, getenv("OWNER_ID", "5992648318").split()))
+OWNER_ID = list(map(int, getenv("OWNER_ID", "6680378171").split()))
 
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
@@ -26,7 +26,7 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/TKS_JOIN")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/STYLE_NAME")
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/TKS_JOIN")
 
 SUPPORT_HEHE = SUPPORT_GROUP.split("me/")[1]
 
@@ -83,28 +83,27 @@ PING_IMG_URL = getenv(
     "https://telegra.ph//file/540be1b75ff70fe7b2c28.jpg",
 )
 
-PLAYLIST_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+PLAYLIST_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-GLOBAL_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+GLOBAL_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-STATS_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+STATS_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-TELEGRAM_AUDIO_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+TELEGRAM_AUDIO_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-TELEGRAM_VIDEO_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+TELEGRAM_VIDEO_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-STREAM_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+STREAM_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-SOUNCLOUD_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+SOUNCLOUD_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-YOUTUBE_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+YOUTUBE_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-SPOTIFY_ARTIST_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+SPOTIFY_ARTIST_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-SPOTIFY_ALBUM_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
+SPOTIFY_ALBUM_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
-SPOTIFY_PLAYLIST_IMG_URL = "https://graph.org/file/7d1db3c57354f5be6c5c3.mp4"
-
+SPOTIFY_PLAYLIST_IMG_URL = "https://telegra.ph//file/131c29a22ea9dd89e88fe.jpg"
 
 def time_to_seconds(time):
     stringt = str(time)
