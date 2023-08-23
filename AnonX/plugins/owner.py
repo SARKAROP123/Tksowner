@@ -53,7 +53,7 @@ async def help(client: Client, message: Message):
 
 
 @app.on_message(
-    filters.command("support")
+    filters.command("group")
     & filters.group
     & ~filters.edited & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
@@ -71,7 +71,7 @@ async def help(client: Client, message: Message):
     )
 
 @app.on_message(
-    filters.command("support")
+    filters.command("group")
     & filters.group
     & ~filters.edited & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
@@ -89,7 +89,7 @@ async def help(client: Client, message: Message):
     )
 
 @app.on_message(
-    filters.command("support")
+    filters.command("group")
     & filters.private
     & ~filters.edited & filters.private & ~filters.edited)
 async def help(client: Client, message: Message):
