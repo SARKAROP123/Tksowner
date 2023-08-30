@@ -4,7 +4,7 @@ import re
 import aiofiles
 import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
-from numpy np
+from numpy as np
 from youtubesearchpython.__future__ import VideosSearch
 
 from AnonXMusic import app
