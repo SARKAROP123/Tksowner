@@ -1,15 +1,16 @@
 import os
 import re
+import textwrap
 
 import aiofiles
 import aiohttp
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
-from numpy as np
+import numpy as np
+
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
 
-from AnonXMusic import app
 from config import YOUTUBE_IMG_URL
-
+from AnonX import app
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
