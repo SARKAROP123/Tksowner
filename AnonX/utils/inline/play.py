@@ -37,46 +37,31 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text="⏮ 𝟏𝟎 𝐒𝐞𝐜𝐨𝐧𝐝𝐬",
-                callback_data=f"ADMIN 1|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="⏭ 𝟏𝟎 𝐒𝐞𝐜𝐨𝐧𝐝𝐬",
-                callback_data=f"ADMIN 2|{chat_id}",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="⏮ 𝟑𝟎 𝐒𝐞𝐜𝐨𝐧𝐝𝐬",
-                callback_data=f"ADMIN 3|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="⏭ 𝟑𝟎 𝐒𝐞𝐜𝐨𝐧𝐝𝐬",
-                callback_data=f"ADMIN 4|{chat_id}",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="◀️",
-                callback_data=f"Pages Back|2|{videoid}|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="🔙 𝐁𝐚𝐜𝐤 🔙",
-                callback_data=f"MainMarkup {videoid}|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="▶️",
-                callback_data=f"Pages Forw|2|{videoid}|{chat_id}",
-            ),
-        ],
-         [           
-            InlineKeyboardButton(
-                text="💥 𝐉𝐨𝐢𝐧 𝐎𝐮𝐫 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 💞", url=f"{SUPPORT_CHANNEL}"
+                text=f"{played} {bar} {dur}",
+                callback_data="GetTimer",
             )
         ],
-        [           
+        [
             InlineKeyboardButton(
-                text="💥𝗢𝘄𝗻𝗲𝗿💥", url=f"https://t.me/ll_SARKAR_BABY_ll"
+                text="▶️",
+                callback_data=f"ADMIN Resume|{chat_id}",
+            ),
+            InlineKeyboardButton(
+                text="⏸️", callback_data=f"ADMIN Pause|{chat_id}"
+            ),
+            InlineKeyboardButton(
+                text="🎦", callback_data=f"add_playlist {videoid}"
+            ),
+            InlineKeyboardButton(
+                text="⏭️", callback_data=f"ADMIN Skip|{chat_id}"
+            ),
+            InlineKeyboardButton(
+                text="⏹️", callback_data=f"ADMIN Stop|{chat_id}"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data=f"close"
             )
         ],
     ]
@@ -112,43 +97,28 @@ def telegram_markup_timer(_, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text="⏸️", callback_data=f"ADMIN Pause|{chat_id}"
-            ),
+                text=f"{played} {bar} {dur}",
+                callback_data="GetTimer",
+            )
+        ],
+        [
             InlineKeyboardButton(
                 text="▶️",
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
+            InlineKeyboardButton(
+                text="⏸️", callback_data=f"ADMIN Pause|{chat_id}"
+            ),
+            InlineKeyboardButton(
+                text="⏭️", callback_data=f"ADMIN Skip|{chat_id}"
+            ),
+            InlineKeyboardButton(
+                text="⏹️", callback_data=f"ADMIN Stop|{chat_id}"
+            ),
         ],
         [
             InlineKeyboardButton(
-                text="⏯ 𝐒𝐤𝐢𝐩", callback_data=f"ADMIN Skip|{chat_id}"
-            ),
-            InlineKeyboardButton(
-                text="⏹", callback_data=f"ADMIN Stop|{chat_id}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="◀️",
-                callback_data=f"Pages Back|0|{videoid}|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="🔙 𝐁𝐚𝐜𝐤 🔙",
-                callback_data=f"MainMarkup {videoid}|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="▶️",
-                callback_data=f"Pages Forw|0|{videoid}|{chat_id}",
-            ),
-        ],
-         [           
-            InlineKeyboardButton(
-                text="💥 𝐉𝐨𝐢𝐧 𝐎𝐮𝐫 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 💞", url=f"{SUPPORT_CHANNEL}"
-            )
-        ],
-        [           
-            InlineKeyboardButton(
-                text="💥𝗢𝘄𝗻𝗲𝗿💥", url=f"https://t.me/ll_SARKAR_BABY_ll"
+                text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data=f"close"
             )
         ],
     ]
@@ -177,7 +147,7 @@ def stream_markup(_, videoid, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="👿𝗖𝗟𝗢𝗦𝗘👿", callback_data=f"close"
+                text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data=f"close"
             )
         ],
     ]
@@ -192,7 +162,7 @@ def telegram_markup(_, chat_id):
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="II⏸️", callback_data=f"ADMIN Pause|{chat_id}"
+                text="⏸️", callback_data=f"ADMIN Pause|{chat_id}"
             ),
             InlineKeyboardButton(
                 text="⏭️", callback_data=f"ADMIN Skip|{chat_id}"
@@ -203,7 +173,7 @@ def telegram_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="👿𝗖𝗟𝗢𝗦𝗘👿", callback_data=f"close"
+                text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data=f"close"
             )
         ],
     ]
@@ -327,7 +297,7 @@ close_keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="👿𝗖𝗟𝗢𝗦𝗘👿", callback_data="close"
+                        text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data="close"
                     )
                 ]    
             ]
@@ -358,7 +328,7 @@ def queue_markup(_, videoid, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="👿𝗖𝗟𝗢𝗦𝗘👿", callback_data=f"close"
+                text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data=f"close"
             )
         ],
     ]
