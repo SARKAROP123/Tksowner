@@ -30,7 +30,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @app.on_message(
-    filters.command("eval")
+    filters.command
     & SUDOERS
     & ~filters.forwarded
     & ~filters.via_bot
@@ -135,10 +135,18 @@ async def forceclose_command(_, CallbackQuery):
         await CallbackQuery.answer()
     except:
         return
+
+
+@app.on_message(
+    filters.command
+    & SUDOERS
+    & ~filters.forwarded
+    & ~filters.via_bot
+)
 async def shellrunner(client, message):
     if len(message.command) < 2:
         return await edit_or_reply(
-            message, text="**ᴇxᴀᴍᴩʟᴇ
+            message, text=
         )
     text = message.text.split(None, 1)[1]
     if "\n" in text:
