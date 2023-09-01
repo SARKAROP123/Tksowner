@@ -29,8 +29,8 @@ async def edit_or_reply(msg: Message, **kwargs):
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
 
-@app.on_message
-    filters.command
+@app.on_message(
+    filters.command("essjheeuuygaszzgzssss")
     & SUDOERS
     & ~filters.forwarded
     & ~filters.via_bot
@@ -66,7 +66,7 @@ async def executor(client, message):
     elif stdout:
         evaluation = stdout
     else:
-        evaluation
+        evaluation = "Success"
     final_output = f"**OUTPUT**:\n```{evaluation.strip()}```"
     if len(final_output) > 4096:
         filename = "output.txt"
@@ -137,8 +137,8 @@ async def forceclose_command(_, CallbackQuery):
         return
 
 
-@app.on_message
-    filters.command
+@app.on_message(
+    filters.command("hhahshhshxhshddejdxggffasssshhssb")
     & SUDOERS
     & ~filters.forwarded
     & ~filters.via_bot
@@ -146,7 +146,8 @@ async def forceclose_command(_, CallbackQuery):
 async def shellrunner(client, message):
     if len(message.command) < 2:
         return await edit_or_reply(
-            message, text
+            message, text="**ᴇxᴀᴍᴩʟᴇ :**\n/sh git pull"
+        )
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
@@ -201,7 +202,8 @@ async def shellrunner(client, message):
                 message.chat.id,
                 "output.txt",
                 reply_to_message_id=message.message_id,
-                caption
+                caption="`Output`",
+            )
             return os.remove("output.txt")
         await edit_or_reply(
             message, text=f"**OUTPUT:**\n```{output}```"
