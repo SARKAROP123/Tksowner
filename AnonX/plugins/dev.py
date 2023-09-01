@@ -135,8 +135,6 @@ async def forceclose_command(_, CallbackQuery):
         await CallbackQuery.answer()
     except:
         return
-
-)
 async def shellrunner(client, message):
     if len(message.command) < 2:
         return await edit_or_reply(
