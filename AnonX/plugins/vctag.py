@@ -85,7 +85,7 @@ async def cancel_spam(client, message):
     is_admin = False
     try:
         participant = await client.get_chat_member(message.chat.id, message.from_user.id)
-      except UserNotParticipant:
+    except UserNotParticipant:
         is_admin = False
     else:
         if participant.status in ("administrator", "creator"):
