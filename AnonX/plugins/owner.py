@@ -23,7 +23,7 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🔥︻┻┳═सरकार🔥", url=f"https://t.me/ll_SARKAR_BABY_ll")
+                        "🔥︻┻┳═सरकार🔥", url=f"https://t.me/ll_SARKAR_BABE_ll")
                 ]
             ]
         ),
@@ -41,7 +41,7 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🔥︻┻┳═सरकार🔥", url=f"https://t.me/ll_SARKAR_BABY_ll")
+                        "🔥︻┻┳═सरकार🔥", url=f"https://t.me/ll_SARKAR_BABE_ll")
                 ]
             ]
         ),
