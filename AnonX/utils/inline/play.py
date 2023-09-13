@@ -58,8 +58,8 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             InlineKeyboardButton(
                 text="⏹️", callback_data=f"ADMIN Stop|{chat_id}"
             ),
-         [
-         ]
+        ],
+        [
             InlineKeyboardButton(
                 text="𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/TKS_JOIN"
             ),
@@ -173,8 +173,8 @@ def stream_markup(_, videoid, chat_id):
                 text="⏹️", callback_data=f"ADMIN Stop|{chat_id}"
             ),
                     
-            [
-            [
+        ],
+        [
             InlineKeyboardButton(
                 text="𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/TKS_JOIN"
             ),
@@ -214,8 +214,8 @@ def telegram_markup(_, chat_id):
             InlineKeyboardButton(
                 text="⏹️", callback_data=f"ADMIN Stop|{chat_id}"
             ),
-            [
-            [
+        ],
+        [
             InlineKeyboardButton(
                 text="𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/TKS_JOIN"
             ),
