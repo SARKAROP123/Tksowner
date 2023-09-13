@@ -150,8 +150,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
             )
         ],
         [
-return buttons
-
+        return buttons
 
 def stream_markup(_, videoid, chat_id):
     buttons = [
