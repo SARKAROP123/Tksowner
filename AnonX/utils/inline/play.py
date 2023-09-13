@@ -61,16 +61,16 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/TKS_JOIN"
+                text=" ❰𝗨𝗣𝗗𝗔𝗧𝗘❱", url="https://t.me/TKS_JOIN"
             ),
         
             InlineKeyboardButton(
-                text="𝗚𝗥𝗢𝗨𝗣", url="https://t.me/+I67bz3RT2cA3ODU1"
+                text=" ❰𝗚𝗥𝗢𝗨𝗣❱", url="https://t.me/+I67bz3RT2cA3ODU1"
             ),
         ],    
         [
             InlineKeyboardButton(
-                text="𝗢𝗪𝗡𝗘𝗥", url="https://t.me/ll_SARKAR_BABE_ll"
+                text="❰𝗢𝗪𝗡𝗘𝗥❱", url="https://t.me/ll_SARKAR_BABE_ll"
             ),
         
         ],
