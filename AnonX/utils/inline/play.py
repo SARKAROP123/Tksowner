@@ -43,40 +43,12 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="▶️",
-                callback_data=f"ADMIN Resume|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="⏸️", callback_data=f"ADMIN Pause|{chat_id}"
-            ),
-            InlineKeyboardButton(
-                text="🎦", callback_data=f"add_playlist {videoid}"
-            ),
-            InlineKeyboardButton(
-                text="⏭️", callback_data=f"ADMIN Skip|{chat_id}"
-            ),
-            InlineKeyboardButton(
-                text="⏹️", callback_data=f"ADMIN Stop|{chat_id}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text=" ❰𝗨𝗣𝗗𝗔𝗧𝗘❱", url="https://t.me/TKS_JOIN"
-            ),
-        
-            InlineKeyboardButton(
                 text=" ❰𝗚𝗥𝗢𝗨𝗣❱", url="https://t.me/+I67bz3RT2cA3ODU1"
             ),
         ],    
         [
             InlineKeyboardButton(
                 text="❰𝗢𝗪𝗡𝗘𝗥❱", url="https://t.me/ll_SARKAR_BABE_ll"
-            ),
-        
-        ],
-        [
-            InlineKeyboardButton(
-                text="👿𝐂𝐋𝐎𝐒𝐄👿", callback_data=f"close"
             )
         ],
     ]
