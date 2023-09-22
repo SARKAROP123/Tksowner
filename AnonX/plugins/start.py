@@ -88,7 +88,7 @@ async def start_comm(client, message: Message, _):
                     details = stats.get(vidid)
                     title = (details["title"][:35]).title()
                     if vidid == "telegram":
-                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/DevilsHeavenMF) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/TKS_JOIN) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
                     else:
                         msg += f"🔗 [{title}](https://www.youtube.com/watch?v={vidid}) ** played {count} times**\n\n"
                 msg = _["ustats_2"].format(tot, tota, limit) + msg
@@ -173,7 +173,7 @@ async def start_comm(client, message: Message, _):
                             text="• ʏᴏᴜᴛᴜʙᴇ •", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="• sᴜᴩᴩᴏʀᴛ •", url="https://t.me/DevilsHeavenMF"
+                            text="• sᴜᴩᴩᴏʀᴛ •", url="https://t.me/TKS_JOIN"
                         ),
                     ],
                 ]
@@ -202,8 +202,18 @@ async def start_comm(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await message.reply_sticker("CAACAgUAAxkBAAIMnGTaXrIh0hLaQqQTZVzlSVb3SLR_AAIcBAAC-UX4KyIB-UY0-vwEHgQ")
-                await message.reply_photo(
+                await asyncio.sleep(1.3)
+                await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
+                await asyncio.sleep(0.2)
+                await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
+                await asyncio.sleep(0.2)
+                await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
+                await asyncio.sleep(0.2)
+                await accha.delete()
+                await m.reply_sticker(CAACAgUAAx0CYhEGswAChwZlDUXtPAlsgIx78UaIm24yiAzu-QACYAoAAjKLWFdCqnbVvTgDxh4E))
+                await asyncio.sleep(2)
+                await umm.delete()
+                await m.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME
