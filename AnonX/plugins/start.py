@@ -202,17 +202,7 @@ async def start_comm(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await asyncio.sleep(1.3)
-                await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
-                await asyncio.sleep(0.2)
-                await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
-                await asyncio.sleep(0.2)
-                await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
-                await asyncio.sleep(0.2)
-                await accha.delete()
                 await message.reply_sticker("CAACAgUAAx0CYhEGswAChwZlDUXtPAlsgIx78UaIm24yiAzu-QACYAoAAjKLWFdCqnbVvTgDxh4E")
-                await asyncio.sleep(2)
-                await umm.delete()
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
