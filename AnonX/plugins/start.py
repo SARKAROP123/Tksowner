@@ -210,7 +210,7 @@ async def start_comm(client, message: Message, _):
                 await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
                 await asyncio.sleep(0.2)
                 await accha.delete()
-                await m.reply_sticker(CAACAgUAAx0CYhEGswAChwZlDUXtPAlsgIx78UaIm24yiAzu-QACYAoAAjKLWFdCqnbVvTgDxh4E))
+                await m.reply_sticker("CAACAgUAAx0CYhEGswAChwZlDUXtPAlsgIx78UaIm24yiAzu-QACYAoAAjKLWFdCqnbVvTgDxh4E")
                 await asyncio.sleep(2)
                 await umm.delete()
                 await m.reply_photo(
