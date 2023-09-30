@@ -20,6 +20,7 @@ from AnonX.utils.pastebin import Anonbin
 from AnonX.utils.stream.queue import put_queue, put_queue_index
 from AnonX.utils.thumbnails import gen_thumb, gen_qthumb
 
+
 async def stream(
     _,
     mystic,
@@ -39,7 +40,7 @@ async def stream(
         if not await is_video_allowed(chat_id):
             raise AssistantErr(_["play_7"])
     if forceplay:
-        await Vip.force_stop_stream(chat_id)
+        await Anon.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['playlist_16']}\n\n"
         count = 0
@@ -88,7 +89,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_16"])
-                await Vip.join_call(
+                await Anon.join_call(
                     chat_id, original_chat_id, file_path, video=status, image=thumbnail
                 )
                 await put_queue(
@@ -121,7 +122,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await Vipbin(msg)
+            link = await Anonbin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -176,7 +177,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Vip.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=status, image=thumbnail
             )
             await put_queue(
@@ -235,7 +236,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Vip.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=None
             )
             await put_queue(
@@ -289,7 +290,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Vip.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -351,7 +352,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Vip.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=status, image=thumbnail if thumbnail else None
             )
             await put_queue(
@@ -405,7 +406,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Vip.join_call(
+            await Anon.join_call(
                 chat_id,
                 original_chat_id,
                 link,
