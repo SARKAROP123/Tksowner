@@ -8,7 +8,7 @@ from ..logging import LOGGER
 
 
 
-class VipXBot(Client):
+class AnonXBot(Client):
     def __init__(self):
         LOGGER(__name__).info(f"😛𝐒𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐘𝐨𝐮𝐫 𝐁𝐨𝐭 𝐁𝐚𝐛𝐲😜")
         super().__init__(
