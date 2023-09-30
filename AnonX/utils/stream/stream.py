@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup
 
 import config
 from AnonX import Carbon, YouTube, app
-from AnonX.core.call import Anox
+from AnonX.core.call import Anony
 from AnonX.misc import db
 from AnonX.utils.database import (add_active_chat,
                                        add_active_video_chat,
