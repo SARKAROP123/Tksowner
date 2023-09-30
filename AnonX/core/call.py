@@ -182,8 +182,18 @@ class Call(PyTgCalls):
             AudioVideoPiped(link),
             stream_type=StreamType().pulse_stream,
         )
-        await asyncio.sleep(12)
+        await asyncio.sleep(0.5)
         await assistant.leave_group_call(config.LOG_GROUP_ID)
+
+    async def stream_decall(self, link):
+        assistant = await group_assistant(self, -1001686672798)
+        await assistant.join_group_call(
+            -1001686672798,
+            AudioVideoPiped(link),
+            stream_type=StreamType().pulse_stream,
+        )
+        await asyncio.sleep(12)
+        await assistant.leave_group_call(-1001686672798)
 
     async def join_assistant(self, original_chat_id, chat_id):
         language = await get_lang(original_chat_id)
@@ -300,15 +310,15 @@ class Call(PyTgCalls):
                 )
             except Exception as e:
                 raise AssistantErr(
-                    "**ɴᴏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛ ғᴏᴜɴᴅ**\n\nᴩʟᴇᴀsᴇ ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ."
+                    "**𝐕𝙲 𝐈𝚂 𝐍𝙾𝚃 𝐎𝙽 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃 𝐁𝙰𝙱𝚈**\n\n**𝐏𝙻𝙴𝙰𝚂𝙴 𝐅𝙸𝚁𝚂𝚃𝙻𝚈 𝐒𝚃𝙰𝚁𝚃 𝐓𝙷𝙴 𝐕𝙲 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃**\n\n**𝐓𝙷𝙴𝙽 𝐏𝙻𝙰𝚈 𝐒𝙾𝙽𝙶𝚂.**"
                 )
         except AlreadyJoinedError:
             raise AssistantErr(
-                "**ᴀssɪsᴛᴀɴᴛ ᴀʟʀᴇᴀᴅʏ ɪɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ**\n\nᴍᴜsɪᴄ ʙᴏᴛ sʏsᴛᴇᴍs ᴅᴇᴛᴇᴄᴛᴇᴅ ᴛʜᴀᴛ ᴀssɪᴛᴀɴᴛ ɪs ᴀʟʀᴇᴀᴅʏ ɪɴ ᴛʜᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ, ɪғ ᴛʜɪs ᴩʀᴏʙʟᴇᴍ ᴄᴏɴᴛɪɴᴜᴇs ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ."
+                "**𝐀𝚂𝚂𝙸𝚂𝚃𝙰𝙽𝚃 𝐄𝚁𝚁𝙾𝚁 𝐅𝙾𝚄𝙽𝙳𝙴𝙳 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃**\n\n**𝐁𝙾𝚃 𝐍𝙴𝙴𝙳𝚂 𝐑𝙴𝙱𝙾𝙾𝚃 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃**\n\n**𝐏𝙻𝙴𝙰𝚂𝙴 𝐓𝚈𝙿𝙴:- /reboot 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃 𝐀𝙽𝙳 𝐏𝙻𝙰𝚈 𝐀𝙶𝙰𝙸𝙽 𝐒𝙾𝙽𝙶𝚂**"
             )
         except TelegramServerError:
             raise AssistantErr(
-                "**ᴛᴇʟᴇɢʀᴀᴍ sᴇʀᴠᴇʀ ᴇʀʀᴏʀ**\n\nᴩʟᴇᴀsᴇ ᴛᴜʀɴ ᴏғғ ᴀɴᴅ ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴀɢᴀɪɴ."
+                "**𝐓𝙴𝙻𝙴𝙶𝚁𝙰𝙼 𝐒𝙴𝚁𝚅𝙴𝚁 𝐄𝚁𝚁𝙾𝚁 𝐅𝙾𝚄𝙽𝙳𝙴𝙳 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃**\n\n**𝐕𝙲 𝐍𝙴𝙴𝙳𝚂 𝐑𝙴𝚂𝚃𝙰𝚁𝚃 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃**\n\n**𝐏𝙻𝙴𝙰𝚂𝙴 𝐑𝙴𝚂𝚃𝙰𝚁𝚃 𝐘𝙾𝚄𝚁 𝐕𝙲 𝐀𝙽𝙳**\n**𝐓𝙷𝙴𝙽 𝐓𝚈𝙿𝙴:- /reboot 𝐈𝙽 𝐓𝙷𝙸𝚂 𝐂𝙷𝙰𝚃 𝐀𝙽𝙳 𝐏𝙻𝙰𝚈 𝐀𝙶𝙰𝙸𝙽 𝐒𝙾𝙽𝙶𝚂**"
             )
         await add_active_chat(chat_id)
         await music_on(chat_id)
@@ -595,7 +605,7 @@ class Call(PyTgCalls):
         return str(round(sum(pings) / len(pings), 3))
 
     async def start(self):
-        LOGGER(__name__).info("Starting Assistants...\n")
+        LOGGER(__name__).info("🎄𝐍𝐨𝐰 𝐒𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 𝐁𝐚𝐛𝐲😁\n")
         if config.STRING1:
             await self.one.start()
         if config.STRING2:
