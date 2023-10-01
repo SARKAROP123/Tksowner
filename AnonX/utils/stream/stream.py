@@ -8,7 +8,7 @@ import config
 from AnonX import Carbon, YouTube, app
 from AnonX.core.call import Anon
 from AnonX.misc import db
-from AnonXMusic.utils.database import add_active_video_chat, is_active_chat
+from AnonX.utils.database import add_active_video_chat, is_active_chat
 from AnonX.utils.exceptions import AssistantErr
 from AnonX.utils.inline import aq_markup, close_markup, stream_markup
 from AnonX.utils.pastebin import Anon
