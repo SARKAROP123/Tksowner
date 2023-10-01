@@ -8,11 +8,11 @@ hachoir
 heroku3
 lyricsgenius
 motor==3.0.0
-pillow==10.0.0
+pillow==9.5.0
 psutil
-py-tgcalls==1.4.16
+py-tgcalls==0.9.7
 pykeyboard
-pyrogram==2.0.106
+pyrogram==1.4.16
 python-dotenv
 pyyaml==5.3.1
 requests
