@@ -79,7 +79,7 @@ async def gen_thumb(videoid, chat_id):
         d = np.array(a)
         e = np.dstack((c, d))
         f = Image.fromarray(e)
-        x = f.resize((107, 107))
+        x = f.resize((1, 1))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         bg = Image.open(f"VipX/assets/bg.png")
@@ -113,19 +113,19 @@ async def gen_thumb(videoid, chat_id):
         width = int((1280 - 1) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (width + 2, 1380), mask=logo)
-        background.paste(x, (10, 610), mask=x)
+        background.paste(x, (10, 6100), mask=x)
         background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AnonX/assets/font2.ttf", 45)
-        ImageFont.truetype("AnonX/assets/font2.ttf", 70)
-        arial = ImageFont.truetype("AnonX/assets/font2.ttf", 30)
-        ImageFont.truetype("AnonX/assets/font.ttf", 30)
+        font = ImageFont.truetype("VipX/assets/font2.ttf", 45)
+        ImageFont.truetype("VipX/assets/font2.ttf", 70)
+        arial = ImageFont.truetype("VipX/assets/font2.ttf", 30)
+        ImageFont.truetype("VipX/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         try:
             draw.text(
                 (25, 0.1),
-                f"𝗦𝗔𝗥𝗞𝗔𝗥 𝗠𝗨𝗦𝗜𝗖",
+                f"VIP  MUSIC",
                 fill="white",
                 stroke_width=4,
                 stroke_fill="black",
@@ -219,10 +219,10 @@ async def gen_qthumb(videoid, chat_id):
         d = np.array(a)
         e = np.dstack((c, d))
         f = Image.fromarray(e)
-        x = f.resize((107, 107))
+        x = f.resize((1, 1))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"AnonX/assets/bg.png")
+        bg = Image.open(f"VipX/assets/bg.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(1))
@@ -253,19 +253,19 @@ async def gen_qthumb(videoid, chat_id):
         width = int((1280 - 365) / 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (width + 2, 1380), mask=logo)
-        background.paste(x, (10, 610), mask=x)
+        background.paste(x, (10, 6100), mask=x)
         background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AnonX/assets/font2.ttf", 45)
-        ImageFont.truetype("AnonX/assets/font2.ttf", 70)
-        arial = ImageFont.truetype("AnonX/assets/font2.ttf", 30)
-        ImageFont.truetype("AnonX/assets/font.ttf", 30)
+        font = ImageFont.truetype("VipX/assets/font2.ttf", 45)
+        ImageFont.truetype("VipX/assets/font2.ttf", 70)
+        arial = ImageFont.truetype("VipX/assets/font2.ttf", 30)
+        ImageFont.truetype("VipX/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         try:
             draw.text(
                 (25, 0.1),
-                "𝗦𝗔𝗥𝗞𝗔𝗥 𝗠𝗨𝗦𝗜𝗖",
+                "VIP  MUSIC",
                 fill="white",
                 stroke_width=5,
                 stroke_fill="black",
